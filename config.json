@@ -1,0 +1,40 @@
+{
+"Modes":
+    {
+    "wandb_mode" : true,
+    "save_mode" : false,
+    "plot_mode" : false,
+    "observation_mode" : false,
+    "play_mode" : false,
+    "seed_mode" : true
+    },
+"Parameters": 
+    {
+    "N_episodes" : 1500,
+    "discount_factor" : 0.95,
+    "n_ep_running_average" : 50,
+    "n_discretization" : 5,
+    "no_steps" : true,
+    "dim_state" : 9,
+    "eval_episodes" : 50,
+    "eval_every" : 100,
+    "hidden_size_1" : 32,
+    "hidden_size_2" : 32
+    },
+"Hyperparameters" : 
+    {
+    "N" : 32,
+    "C": 50,
+    "N_buffer" : 1500,
+    "lr" : 5e-4,
+    "e_min" : 0.1,
+    "e_max" : 0.99,
+    "CER" : true,
+    "exponential_decay" : true,
+    "experimental_power_reward" : false
+    },
+"Display parameters" : 
+    {
+    "show_each" : 10000
+    }
+}
