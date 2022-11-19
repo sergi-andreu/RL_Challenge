@@ -90,3 +90,35 @@ The modes specify the "mode" in which we want to run the program.
 
 ### Display parameters
 Unused
+
+# Project description
+
+We want to find an agent (a “player”) that learns how to play a game given as the Platform environment.
+
+## What will I try to do?
+- Understand the problem setting
+- Choose a RL algorithm and implement it
+- Find appropriate hyperparameters
+- Understand the trained agent’s decisions
+
+## Setting and limitations
+. I had not used Reinforcement Learning libraries before
+- Not much experienced in RL implementation (one academic course with some labs)
+- Not comfortable with SOTA algorithms (prefer “simple” ones)
+- Personal laptop not working properly 
+
+## What do I do?
+
+I implement a [PPO algorithm](https://openai.com/blog/openai-baselines-ppo/) using [rllib library](https://docs.ray.io/en/latest/rllib/index.html) (in the notebook *train_ray_agent*), which achieves nearly perfect score (reward 0.999).
+
+I then decide to construct my own [DQN algorithm](https://paperswithcode.com/method/dqn) implementation, which is simpler, but would gave me a better control of the environment and model, and allow me to define a simpler explainability pipeline.
+I also use [Combined Experience Replay](https://paperswithcode.com/method/dqn) and [Dueling Networks](https://arxiv.org/abs/1511.06581).
+
+## Discretizing the action space
+The action space is continuous, since the intensity of the actions is a continuous (float) variable. This makes it more difficult to learn an agent.
+To solve this, I decide to dicretize the intensity of the actions with equally distributed bins. The number of bins would be defined by *n_discretization*.
+
+## Discretizing the observation space
+The observation of the state contains an observation on the number of steps done.
+The information of the step could be redundant (otherwise the player could “”memorize”” a policy; playing blindfolded). We choose whether to give this information to the network or not, via the *no_steps* variable.
+
