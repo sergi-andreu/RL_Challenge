@@ -114,6 +114,8 @@ I implement a [PPO algorithm](https://openai.com/blog/openai-baselines-ppo/) usi
 I then decide to construct my own [DQN algorithm](https://paperswithcode.com/method/dqn) implementation, which is simpler, but would gave me a better control of the environment and model, and allow me to define a simpler explainability pipeline.
 I also use [Combined Experience Replay](https://paperswithcode.com/method/dqn) and [Dueling Networks](https://arxiv.org/abs/1511.06581).
 
+![DQN](figs/dqn_scheme.JPG)
+
 ## Discretizing the action space
 The action space is continuous, since the intensity of the actions is a continuous (float) variable. This makes it more difficult to learn an agent.
 To solve this, I decide to dicretize the intensity of the actions with equally distributed bins. The number of bins would be defined by *n_discretization*.
@@ -121,4 +123,31 @@ To solve this, I decide to dicretize the intensity of the actions with equally d
 ## Discretizing the observation space
 The observation of the state contains an observation on the number of steps done.
 The information of the step could be redundant (otherwise the player could “”memorize”” a policy; playing blindfolded). We choose whether to give this information to the network or not, via the *no_steps* variable.
+
+## Training
+Training with the default configurations. We achieve a 100% winning rate after 1500 iterations.
+![training](figs/prel_res.JPG)
+
+
+## Hyperparameter tuning
+Some violin plots of the hyperparameter tuning, where each hyperparameters have been tried on 15 different random initializations. 
+
+![C](figs/c.JPG)
+![nbuffer](figs/nbuffer.JPG)
+![N](figs/n.JPG)
+
+![CER](figs/cer.JPG)
+![emax](figs/emax.JPG)
+
+![CER](figs/expdec.JPG)
+![emax](figs/hidden.JPG)
+
+## Explainability
+In this explainability pipeline, we use saliency maps. In the top, the agent player is shown. In the botom left, the distribution of the approximated Q values (the greater is the Q value for an action, the "better" is to take that action, according to the approximated reward.
+In the bottom right, the distribution of the saliency map for the best action is shown. The greater is the value for a particular observation, the more that observation has been used to decide to take that action.
+
+![explainability](figs/1500.mp4)
+
+
+
 
