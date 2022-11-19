@@ -146,7 +146,7 @@ Some violin plots of the hyperparameter tuning, where each hyperparameters have 
 In this explainability pipeline, we use saliency maps. In the top, the agent player is shown. In the botom left, the distribution of the approximated Q values (the greater is the Q value for an action, the "better" is to take that action, according to the approximated reward.
 In the bottom right, the distribution of the saliency map for the best action is shown. The greater is the value for a particular observation, the more that observation has been used to decide to take that action.
 
-![explainability](figs/1500.mp4)
+![explainability](figs/1500.gif)
 
 
 
